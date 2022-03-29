@@ -151,7 +151,9 @@ jobs:
           export_default_credentials: true 
         
       - name: Build Docker Image
-        run: docker build --tag env.IMAGE_NAME:latest .
+        env: 
+          IMAGE_NAME: cicdrepo
+        run: docker build --tag $IMAGE_NAME:latest .
 
       - name: Run configure client
         run: |
@@ -161,6 +163,7 @@ jobs:
       - name: Push docker images to the container registry GCR
         env: 
           GET_TAG: v0.1.0
+          IMAGE_NAME: cicdrepo
         run: |
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
