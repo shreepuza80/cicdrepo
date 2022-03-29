@@ -166,10 +166,10 @@ jobs:
           IMAGE_NAME: cicdrepo
           PROJECT_ID: acn-schooloftechfutures3
         run: |
-          docker tag $IMAGE_NAME:latest eu.gcr.io/$PROJECT_ID/$IMAGE_NAME
-          docker tag $IMAGE_NAME:latest eu.gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
-          docker push eu.gcr.io/$PROJECT_ID/$IMAGE_NAME
-          docker push eu.gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME
+          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME
+          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
 
       - name: push docker images to artifactory registry
         env: 
