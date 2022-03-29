@@ -144,7 +144,7 @@ jobs:
 
       - name: establish connect with gcp
        #uses: shreepuza80/poojacicd@main
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0
         with: 
           service_account_key: ${{secrets.SERVICEACCOUNTKEY}}
           Project_id: ${{env.PROJECT_ID}}
