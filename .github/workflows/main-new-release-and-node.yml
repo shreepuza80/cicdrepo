@@ -153,7 +153,7 @@ jobs:
       - name: Build Docker Image
         env: 
           IMAGE_NAME: cicdrepo
-        run: docker build --tag $IMAGE_NAME:latest .
+        run: docker build --tag $IMAGE_NAME:latest ./pokemon-app
 
       - name: Run configure client
         run: |
