@@ -13,7 +13,7 @@ jobs:
   get-publish-version:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: cicdrepo:latest
+      IMAGE_NAME: cicdrepo
       PROJECT_ID: acn-schooloftechfutures3
     outputs:
       publish-version: ${{ steps.get-publish-version.outputs.publish-version }}
