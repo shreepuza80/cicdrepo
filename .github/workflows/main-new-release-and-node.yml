@@ -153,8 +153,7 @@ jobs:
       - name: Build Docker Image
         env: 
           IMAGE_NAME: cicdrepo
-          PROJECT_ID: acn-schooloftechfutures3
-        run: docker build submit --tag gcr.io/$PROJECT_ID/$IMAGE_NAME:latest ./pokemon-app
+        run: docker build --tag $IMAGE_NAME:latest ./pokemon-app
 
       - name: Run configure client
         run: |
@@ -167,10 +166,10 @@ jobs:
           IMAGE_NAME: cicdrepo
           PROJECT_ID: acn-schooloftechfutures3
         run: |
-          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME/$IMAGE_NAME:latest
-          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME/$IMAGE_NAME:$GIT_TAG
-          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME/$IMAGE_NAME:latest
-          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$IMAGE_NAME:$GIT_TAG
+          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME
+          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
 
       - name: push docker images to artifactory registry
         env: 
