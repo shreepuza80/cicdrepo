@@ -153,7 +153,8 @@ jobs:
       - name: Build Docker Image
         env: 
           IMAGE_NAME: cicdrepo
-        run: docker build --tag $IMAGE_NAME:latest ./pokemon-app
+          PROJECT_ID: acn-schooloftechfutures3
+        run: docker build submit --tag gcr.io/$PROJECT_ID/$IMAGE_NAME:latest ./pokemon-app
 
       - name: Run configure client
         run: |
